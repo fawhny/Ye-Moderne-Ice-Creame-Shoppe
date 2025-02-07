@@ -1,5 +1,5 @@
 -- Query 1
--- this query displays the flavor id, flavor name, and status for in stock flavors beginning with the letter 'b'
+-- this query displays the flavor id, flavor name, and status for in-stock flavors beginning with the letter 'b'
 SELECT flavor_id AS "Flavor ID",
        flavor_name AS "Flavor",
        in_stock AS "Stock Status"
@@ -33,11 +33,10 @@ ORDER BY sale_date
 FETCH FIRST 50 ROWS ONLY
 ;
 
--- team nine
 -- 2.15.2020
 
 -- Query4
--- this query returns the flavor name, stock id, and stock status of an ice creame flavor based on a one word input from the user
+-- this query returns the flavor name, stock id, and stock status of an ice creame flavor based on a one-word input from the user
 SELECT flavor_name AS "Flavor",
        LPAD(stock_id, 14, '*') AS "Stock ID",
        in_stock AS "Stock Status"
@@ -56,11 +55,10 @@ FROM inventory
 ORDER BY 1
 ;
 
--- team nine
 -- 2.21.2020
 
 -- Query 6
--- this query returns the sale_id and the total amount of the sale for sales occuring on january 1 2020
+-- this query returns the sale_id and the total amount of the sale for sales occurring on january 1 2020
 SELECT sale_id AS "Transaction ID",
        TO_CHAR(amount, '$999,999.00') AS "Sale Amount",
        sale_date AS "Day of Sale"
@@ -82,7 +80,6 @@ FROM employee
 ORDER BY 3
 ;
 
--- team nine
 -- 3.2.2020
 
 -- Query 8
@@ -109,11 +106,10 @@ HAVING SUM(amount) > MAX(amount)
 ORDER BY sale_date
 ;
 
--- team nine
 -- 3.15.2020
 
 -- Query 10
--- this query returns the ice-cream flavor(s) and transaction id of each sale.
+-- this query returns the ice creame flavor(s) and transaction id of each sale.
 SELECT i.flavor_name AS "Ice-Creame",
        f.sale_sale_id AS "Transaction ID"
 FROM ice_creame i JOIN flavors f
@@ -122,7 +118,7 @@ ORDER BY 2
 ;
 
 -- Query 11
--- this query returns the name, job, sale amount, and sale date, associated will all emlpoyees that have made sales
+-- this query returns the name, job, sale amount, and sale date, associated with all employees that have made sales
 SELECT e.e_first || ' ' || e.e_last AS "Employee",
        e.e_role AS "Job Title",
        TO_CHAR(s.amount, '$999,999.99') AS "Sale Amount",
@@ -131,7 +127,6 @@ FROM employee e FULL OUTER JOIN sale s ON e.employee_id = s.employee_employee_id
 ORDER BY 4
 ;
 
--- team nine
 -- 4.3.2020
 
 -- Query 12
@@ -148,7 +143,7 @@ ORDER BY item_price
 ;
 
 -- Query 13
--- this query displays the employees who have made sales totaling an amount greater than the avergae sale amount
+-- this query displays the employees who have made sales totaling an amount greater than the average sale amount
 SELECT e_first || ' ' || e_last AS "Employees With Above Average Sales",
        employee_id AS "Employee ID"
 FROM employee
@@ -159,7 +154,6 @@ WHERE employee_id IN (SELECT employee_employee_id
 ORDER BY 2
 ;
 
--- team nine
 -- 4.25.2020
 
 -- Query 14
@@ -173,7 +167,7 @@ ORDER BY 2
 ;
 
 -- Query 15
--- this query displays all of the flavor ids and names of ice-creames that have not been sold
+-- this query displays all of the flavor ids and names of ice creames that have not been sold
 SELECT flavor_id AS "Flavor ID", flavor_name AS "Unsold Ice-Creame Flavors"
 FROM ice_creame
 MINUS
