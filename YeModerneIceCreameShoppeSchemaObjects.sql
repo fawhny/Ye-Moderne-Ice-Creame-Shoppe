@@ -1,4 +1,3 @@
--- team nine
 -- 4.18.2020
 -- Schema Objects
 
